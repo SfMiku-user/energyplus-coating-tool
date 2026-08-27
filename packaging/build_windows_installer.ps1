@@ -68,7 +68,7 @@ Copy-Item -LiteralPath (Join-Path $buildRoot "app\EnergyPlusCoatingTool.exe") -D
 foreach ($directory in @("templates", "sample_projects", "examples")) {
     Copy-Item -LiteralPath (Join-Path $projectRoot $directory) -Destination $payload -Recurse
 }
-foreach ($file in @("README.md", "测试版使用说明.md", "THIRD_PARTY_NOTICES.txt", "settings.example.json")) {
+foreach ($file in @("README.md", "软件使用说明.txt", "测试版使用说明.md", "THIRD_PARTY_NOTICES.txt", "settings.example.json")) {
     Copy-Item -LiteralPath (Join-Path $projectRoot $file) -Destination $payload
 }
 
