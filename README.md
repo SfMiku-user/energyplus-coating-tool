@@ -162,6 +162,15 @@ print(result.comparison_json_path)
 
 双击 `启动工具.bat`。
 
+如果使用Windows离线安装包，安装后直接从开始菜单启动，无需另外安装Python。
+离线安装包已经包含未经修改的OpenStudio 3.11.0和EnergyPlus 26.1.0；相关
+许可证保存在安装目录的 `runtimes` 文件夹和 `THIRD_PARTY_NOTICES.txt` 中。
+
+Windows 64 位离线安装包可从
+[GitHub Releases](https://github.com/SfMiku-user/energyplus-coating-tool/releases/latest)
+下载。安装包约 360 MB，安装后约需 2 GB 磁盘空间。首次下载可能收到
+Windows SmartScreen 提示，因为当前测试版尚未使用商业代码签名证书。
+
 首次使用依次选择：
 
 1. 填好的 `建筑参数输入模板.xlsx`；

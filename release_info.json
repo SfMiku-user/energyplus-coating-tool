@@ -2,7 +2,7 @@
   "product": "辐射制冷涂料建筑节能计算工具",
   "version": "0.1.0-test",
   "release_stage": "testable",
-  "entrypoint": "启动工具.bat",
+  "entrypoint": "EnergyPlusCoatingTool.exe（Windows离线安装版）或启动工具.bat（源码版）",
   "input_interface": [
     "建筑参数 Excel",
     "EPW 气象文件",
@@ -15,7 +15,14 @@
   },
   "acceptance_run": "test_runs/end_to_end_acceptance",
   "acceptance_status": "passed",
-  "automated_test_count": 37,
+  "automated_test_count": 39,
+  "windows_installer": {
+    "file": "EnergyPlusCoatingTool-0.1.0-test-windows-x64-setup.exe",
+    "bundled_openstudio": "3.11.0",
+    "bundled_energyplus": "26.1.0",
+    "python_required": false,
+    "acceptance_status": "passed"
+  },
   "known_limits": [
     "涂层采用宽波段长波发射率和太阳反射率薄膜等效",
     "当前只允许目标表面100%覆盖",

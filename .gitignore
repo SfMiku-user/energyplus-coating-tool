@@ -21,6 +21,8 @@ stage8_results/
 test_runs/
 outputs/
 reports/
+build/
+release/
 
 # EnergyPlus/OpenStudio generated files if a run is placed elsewhere
 eplusout.*

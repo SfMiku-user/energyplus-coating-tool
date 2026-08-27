@@ -4,6 +4,7 @@ import json
 import os
 import queue
 import shutil
+import sys
 import threading
 import tkinter as tk
 from pathlib import Path
@@ -12,10 +13,24 @@ from tkinter import filedialog, messagebox, ttk
 from model_builder import WorkflowError, run_project_workflow
 
 
-APP_DIR = Path(__file__).resolve().parent
-SETTINGS_PATH = APP_DIR / "settings.json"
+IS_FROZEN = bool(getattr(sys, "frozen", False))
+APP_DIR = (
+    Path(sys.executable).resolve().parent
+    if IS_FROZEN
+    else Path(__file__).resolve().parent
+)
+LOCAL_DATA_DIR = (
+    Path(os.environ.get("LOCALAPPDATA", APP_DIR)) / "EnergyPlusCoatingTool"
+    if IS_FROZEN
+    else APP_DIR
+)
+SETTINGS_PATH = LOCAL_DATA_DIR / "settings.json"
 SAMPLE_EXCEL = APP_DIR / "sample_projects" / "示例办公楼.xlsx"
-DEFAULT_RESULTS = APP_DIR / "test_runs"
+DEFAULT_RESULTS = (
+    Path.home() / "Documents" / "EnergyPlus Coating Tool Results"
+    if IS_FROZEN
+    else APP_DIR / "test_runs"
+)
 
 
 def _discover_executable(
@@ -370,6 +385,13 @@ class CoatingApp(tk.Tk):
                     "OPENSTUDIO_EXE",
                     ("openstudio.exe", "openstudio"),
                     (
+                        str(
+                            APP_DIR
+                            / "runtimes"
+                            / "OpenStudio-3.11.0"
+                            / "bin"
+                            / "openstudio.exe"
+                        ),
                         "C:/OpenStudio-3.11.0/bin/openstudio.exe",
                         "C:/Program Files/OpenStudio 3.11.0/bin/openstudio.exe",
                     ),
@@ -383,6 +405,12 @@ class CoatingApp(tk.Tk):
                     "ENERGYPLUS_EXE",
                     ("energyplus.exe", "energyplus"),
                     (
+                        str(
+                            APP_DIR
+                            / "runtimes"
+                            / "EnergyPlus-26.1.0"
+                            / "energyplus.exe"
+                        ),
                         "C:/EnergyPlusV26-1-0/energyplus.exe",
                         "C:/EnergyPlus-26-1-0/energyplus.exe",
                     ),
@@ -391,6 +419,7 @@ class CoatingApp(tk.Tk):
         )
 
     def _save_settings(self) -> None:
+        SETTINGS_PATH.parent.mkdir(parents=True, exist_ok=True)
         SETTINGS_PATH.write_text(
             json.dumps(
                 {

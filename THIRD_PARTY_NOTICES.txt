@@ -1,0 +1,23 @@
+Third-Party Software Notices
+============================
+
+This distribution bundles the following unmodified third-party software:
+
+1. OpenStudio 3.11.0
+   Copyright (c) Alliance for Sustainable Energy, LLC and contributors.
+   The complete OpenStudio license and notices are installed under:
+   runtimes/OpenStudio-3.11.0/LICENSE.md
+   runtimes/OpenStudio-3.11.0/copyright.txt
+
+2. EnergyPlus version 26.1.0 software
+   Copyright (c) the Regents of the University of California, through
+   Lawrence Berkeley National Laboratory, and other contributors.
+   The complete EnergyPlus license and third-party notices are installed under:
+   runtimes/EnergyPlus-26.1.0/LICENSE.txt
+   runtimes/EnergyPlus-26.1.0/Licenses/
+
+OpenStudio and EnergyPlus are not renamed or modified by this installer.
+Their names do not imply endorsement of this application by their copyright
+holders, contributors, the United States Government, or the United States
+Department of Energy.
+
