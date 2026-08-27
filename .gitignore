@@ -1,0 +1,41 @@
+# Python cache and local environments
+__pycache__/
+*.py[cod]
+*.pyd
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+
+# Local application settings (may contain machine-specific paths)
+settings.json
+
+# Codex and spreadsheet editing scratch data
+.codex_tmp/
+*.inspect.ndjson
+
+# Generated models, simulations and run history
+generated_model/
+stage7_coating_model/
+stage8_results/
+test_runs/
+outputs/
+reports/
+
+# EnergyPlus/OpenStudio generated files if a run is placed elsewhere
+eplusout.*
+eplusmtr.csv
+epluszsz.csv
+eplustbl.htm
+sqlite.err
+*.idfnew
+*.idfold
+*.log
+
+# Editor and operating-system files
+~$*
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini

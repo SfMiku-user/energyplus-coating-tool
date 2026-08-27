@@ -1,0 +1,11 @@
+* text=auto
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.bat text eol=crlf
+*.idf text eol=lf
+*.osm text eol=lf
+*.epw text eol=lf
+*.xlsx binary
+*.zip binary
+

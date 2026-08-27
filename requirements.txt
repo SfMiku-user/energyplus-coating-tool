@@ -1,0 +1,3 @@
+# The desktop tool and test suite use only the Python standard library.
+# OpenStudio 3.11 and EnergyPlus 26.1 are installed separately.
+

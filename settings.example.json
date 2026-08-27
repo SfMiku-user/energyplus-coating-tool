@@ -1,0 +1,8 @@
+{
+  "excel": "sample_projects/示例办公楼.xlsx",
+  "epw": "examples/USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw",
+  "output": "test_runs",
+  "openstudio": "C:/OpenStudio-3.11.0/bin/openstudio.exe",
+  "energyplus": "C:/EnergyPlusV26-1-0/energyplus.exe"
+}
+
