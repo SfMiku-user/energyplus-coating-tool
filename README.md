@@ -12,7 +12,7 @@
 
 工具只使用 Python 标准库，不需要安装 Streamlit、Flask 或其他第三方包。
 
-## 在另一台设备上使用
+## 在设备上使用
 
 1. 从 GitHub 克隆或下载本项目；
 2. 安装 Python 3.10+、OpenStudio 3.11.0 和 EnergyPlus 26.1.0；
