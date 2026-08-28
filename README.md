@@ -49,7 +49,7 @@ convert_excel_to_json(
 
 ## OpenStudio 模型生成接口
 
-阶段五开始提供统一项目 JSON 到 OSM/IDF 的封装。OpenStudio 的 Windows
+开始提供统一项目 JSON 到 OSM/IDF 的封装。OpenStudio 的 Windows
 Python 启动器不能可靠接收中文命令行路径，因此封装会自动使用临时 ASCII
 工作区，完成后再把所有结果复制回中文项目目录：
 
@@ -66,12 +66,12 @@ result = build_openstudio_model(
 print(result.compatible_idf_path)
 ```
 
-阶段五生成楼层、热区、空间几何、材料、围护构造、窗、人员、照明、
+生成楼层、热区、空间几何、材料、围护构造、窗、人员、照明、
 设备、渗透、室外新风、运行时间表、温控器和 HVAC，并加入分区尺寸计算、
 设计日及逐时制冷负荷/用电输出。传入 EPW 后会自动执行 EnergyPlus 烟雾测试；
 存在 Fatal 错误或缺少制冷负荷输出时，生成过程会直接报错。
 
-阶段五的固定输出结构如下（`build_manifest.json` 是额外的机器可读验收清单）：
+固定输出结构如下（`build_manifest.json` 是额外的机器可读验收清单）：
 
 ```text
 generated_model/
@@ -87,7 +87,7 @@ generated_model/
    └─ eplusout.err
 ```
 
-## 阶段六几何验收
+## 几何验收
 
 模型保存前会自动执行几何质量检查。默认楼面面积容差为 `0.01 m2`，
 坐标匹配容差为 `1e-5 m`，也可以在调用时调整：
@@ -111,7 +111,7 @@ OSM 楼面面积，并检查内部表面匹配、重复空间、负面积表面�
 
 ## 阶段七涂层模型生成
 
-阶段七从项目 JSON 读取启用的涂料方案和目标构造，成对生成基准 IDF 与
+从项目 JSON 读取启用的涂料方案和目标构造，成对生成基准 IDF 与
 涂层 IDF。原始阶段六 IDF 不会被修改，非目标表面和全部几何坐标保持不变：
 
 ```python
@@ -132,7 +132,7 @@ print(result.coating_idf_path)
 允许 100% 表面覆盖；若输入部分覆盖率，程序会明确停止，避免把部分覆盖
 错误地等同为整面材料参数。
 
-## 阶段八精确结果
+## 精确结果
 
 年度能耗不再使用会显示舍入的 GJ 汇总值，而是直接汇总 EnergyPlus SQLite
 中天气运行期的 8760/8784 条逐时记录。阶段八会检查基准与涂层时间戳完全
